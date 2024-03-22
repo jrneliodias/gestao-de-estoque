@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}" />
+  </head>
+  <body>
+    <img class="logo" src="{{url_for('static',filename='oak_techo.jpeg')}}" />
+    <div class="container">
+      <h1>Lista de Produtos</h1>
+      <table>
+        <tr>
+          <th>Produto</th>
+          <th>Valor</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+          <td>{{ produto[1]}}</td>
+          <td>{{ "R$ {:,.2f}".format(produto[3]) }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{{url_for('novo_produto')}}">
+        <button class="add-product">Novo Produto</button>
+      </a>
+      <a href="{{url_for('apagar_produtos')}}">
+        <button class="clear-btn">Apagar Todos os produtos</button>
+      </a>
+    </div>
+  </body>
+</html>
