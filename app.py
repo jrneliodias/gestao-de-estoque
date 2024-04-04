@@ -44,7 +44,7 @@ def index():
     return render_template('index.html', produtos=produtos)
 
 
-@app.route('/novo_paciente', methods=['GET', 'POST'])
+@app.route('/novo_produto', methods=['GET', 'POST'])
 def novo_produto():
     if request.method == 'POST':
         nome = request.form['nome']
